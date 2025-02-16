@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: oklch(0.63 0.24 25.37);
+}
+
 .dm-sans-thin {
   font-family: "DM Sans", serif;
   font-optical-sizing: auto;
