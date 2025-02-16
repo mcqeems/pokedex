@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useSprings, animated } from "@react-spring/web";
+import PropTypes from "prop-types";
 
 const BlurText = ({
   text = "",
@@ -51,7 +52,7 @@ const BlurText = ({
           observer.unobserve(ref.current);
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
 
     observer.observe(ref.current);
@@ -79,7 +80,7 @@ const BlurText = ({
         : animationFrom || defaultFrom,
       delay: i * delay,
       config: { easing },
-    }))
+    })),
   );
 
   return (
@@ -96,6 +97,20 @@ const BlurText = ({
       ))}
     </p>
   );
+};
+
+BlurText.propTypes = {
+  text: PropTypes.string,
+  delay: PropTypes.number,
+  className: PropTypes.string,
+  animateBy: PropTypes.oneOf(["words", "letters"]),
+  direction: PropTypes.oneOf(["top", "bottom"]),
+  threshold: PropTypes.number,
+  rootMargin: PropTypes.string,
+  animationFrom: PropTypes.object,
+  animationTo: PropTypes.arrayOf(PropTypes.object),
+  easing: PropTypes.string,
+  onAnimationComplete: PropTypes.func,
 };
 
 export default BlurText;

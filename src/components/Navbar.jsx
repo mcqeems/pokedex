@@ -7,52 +7,46 @@ function Navbar() {
   return (
     <header>
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 dm-sans-medium">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="dm-sans-medium fixed top-0 left-0 z-50 w-full bg-white shadow-md">
+        <div className="container mx-auto flex items-center justify-between px-4 py-4">
           {/* Logo */}
           <div className="flex space-x-4">
             <Link
               to="/"
-              className="transition delay-100 duration-100 hover:animate-spin ease-in-out hover:scale-110"
+              className="transition delay-100 duration-100 ease-in-out hover:scale-110 hover:animate-spin"
             >
               <img className="h-8 w-8" src="/pokeball2.svg" alt="PokeDex"></img>
             </Link>
-            <div className="text-xl font-bold text-red-500 transition delay-100 duration-100 ease-in-out hover:scale-110 hover:text-red-600 dm-sans-super-bold">
+            <div className="dm-sans-super-bold text-xl font-bold text-red-500 transition delay-100 duration-100 ease-in-out hover:scale-110 hover:text-red-600">
               <Link to="/">Pokédex</Link>
             </div>
           </div>
 
           <button
-            className="md:hidden block text-gray-700 hover:text-red-500 focus:outline-none"
+            className={`${isMenuOpen ? "ml-55" : "md:hidden"} text-gray-700 hover:text-red-500 focus:outline-none`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {/* Icon 3 Baris */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              viewBox="0 0 72 72"
+              width="48px"
+              height="48px"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+              <path d="M56 48c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 48 54.798 48 56 48zM56 32c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 32 54.798 32 56 32zM56 16c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 16 54.798 16 56 16z" />
             </svg>
           </button>
 
           <div
             className={`${
               isMenuOpen ? "block" : "hidden"
-            } md:hidden bg-white w-1 mt-2`}
+            } mt-2 w-1 bg-white md:hidden`}
           >
-            <ul className="flex flex-col justify-self-end space-y-2 p-4">
+            <ul className="flex flex-col space-y-2 justify-self-end p-4">
               <li>
                 <Link
                   to="/"
-                  className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
                 >
                   Home
                 </Link>
@@ -60,7 +54,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/about"
-                  className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
                 >
                   About
                 </Link>
@@ -68,7 +62,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/pokemons"
-                  className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
                 >
                   Pokemons
                 </Link>
@@ -76,7 +70,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/contact"
-                  className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
                 >
                   Contact
                 </Link>
@@ -85,11 +79,11 @@ function Navbar() {
           </div>
 
           {/* Menu Items */}
-          <ul className="hidden md:flex space-x-4">
+          <ul className="hidden space-x-4 md:flex">
             <li>
               <Link
                 to="/"
-                className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
               >
                 Home
               </Link>
@@ -97,7 +91,7 @@ function Navbar() {
             <li>
               <Link
                 to="/about"
-                className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
               >
                 About
               </Link>
@@ -105,7 +99,7 @@ function Navbar() {
             <li>
               <Link
                 to="/pokemons"
-                className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
               >
                 Pokemons
               </Link>
@@ -113,7 +107,7 @@ function Navbar() {
             <li>
               <Link
                 to="/contact"
-                className="text-black hover:text-red-600 transition delay-100 duration-100 ease-in-out"
+                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
               >
                 Contact
               </Link>

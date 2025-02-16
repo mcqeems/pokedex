@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
 class Grad {
   constructor(x, y, z) {
@@ -80,12 +81,12 @@ class Noise {
     return this.lerp(
       this.lerp(n00, n10, u),
       this.lerp(n01, n11, u),
-      this.fade(y)
+      this.fade(y),
     );
   }
 }
 
-export default function Waves({
+function Waves({
   lineColor = "#9ACBD0",
   backgroundColor = "transparent",
   waveSpeedX = 0.0125,
@@ -162,7 +163,7 @@ export default function Waves({
           const move =
             noise.perlin2(
               (p.x + time * waveSpeedX) * 0.002,
-              (p.y + time * waveSpeedY) * 0.0015
+              (p.y + time * waveSpeedY) * 0.0015,
             ) * 12;
           p.wave.x = Math.cos(move) * waveAmpX;
           p.wave.y = Math.sin(move) * waveAmpY;
@@ -187,11 +188,11 @@ export default function Waves({
 
           p.cursor.x = Math.min(
             maxCursorMove,
-            Math.max(-maxCursorMove, p.cursor.x)
+            Math.max(-maxCursorMove, p.cursor.x),
           );
           p.cursor.y = Math.min(
             maxCursorMove,
-            Math.max(-maxCursorMove, p.cursor.y)
+            Math.max(-maxCursorMove, p.cursor.y),
           );
         });
       });
@@ -217,7 +218,7 @@ export default function Waves({
           p1 = moved(p, !isLast);
           const p2 = moved(
             points[idx + 1] || points[points.length - 1],
-            !isLast
+            !isLast,
           );
           ctx.lineTo(p1.x, p1.y);
           if (isLast) ctx.moveTo(p2.x, p2.y);
@@ -308,17 +309,35 @@ export default function Waves({
         backgroundColor,
         ...style,
       }}
-      className={`absolute top-0 left-0 w-full h-full overflow-hidden ${className}`}
+      className={`absolute top-0 left-0 w-full overflow-hidden ${className}`}
     >
       <div
-        className="absolute top-0 left-0 bg-[#160000] rounded-full w-[0.5rem] h-[0.5rem]"
+        className="absolute top-0 left-0 h-[0.5rem] w-[0.5rem] rounded-full bg-[#160000]"
         style={{
           transform:
             "translate3d(calc(var(--x) - 50%), calc(var(--y) - 50%), 0)",
           willChange: "transform",
         }}
       />
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <canvas ref={canvasRef} className="block h-full w-full" />
     </div>
   );
 }
+
+Waves.propTypes = {
+  lineColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  waveSpeedX: PropTypes.number,
+  waveSpeedY: PropTypes.number,
+  waveAmpX: PropTypes.number,
+  waveAmpY: PropTypes.number,
+  xGap: PropTypes.number,
+  yGap: PropTypes.number,
+  friction: PropTypes.number,
+  tension: PropTypes.number,
+  maxCursorMove: PropTypes.number,
+  style: PropTypes.object,
+  className: PropTypes.string,
+};
+
+export default Waves;
