@@ -40,17 +40,17 @@ const Input = ({ onSearch }) => {
           onChange={(e) => setQuery(e.target.value)}
           name="text"
           placeholder="Find your Pokemon!"
-          className="input dm-sans-medium mt-5 md:mt-20 md:scale-130"
+          className="input fade-in-blur-long dm-sans-medium mt-5 md:mt-20 md:scale-130"
         />
       </StyledWrapper>
 
       {suggestions.length > 0 && (
-        <ul className="dm-sans-thin absolute z-10 mb-[-260px] max-h-20 w-[200px] overflow-hidden rounded-2xl bg-white/50 shadow-lg transition-all delay-50 duration-150 ease-in-out hover:w-[240px] hover:scale-105 hover:bg-white/80 md:mb-[-420px]">
+        <ul className="fade-in-scale dm-sans-thin absolute z-10 mb-[-340px] max-h-20 w-[200px] overflow-hidden rounded-2xl bg-white/50 shadow-lg transition-all delay-50 duration-150 ease-in-out hover:w-[240px] hover:scale-105 hover:bg-white/80 md:mb-[-420px]">
           {suggestions.map((name, index) => (
             <li
               key={index}
               onClick={() => handleSuggestionClick(name)}
-              className="cursor-pointer p-2 hover:bg-gray-100"
+              className="cursor-pointer p-2 transition delay-75 duration-75 ease-in-out hover:bg-gray-100"
             >
               {name}
             </li>

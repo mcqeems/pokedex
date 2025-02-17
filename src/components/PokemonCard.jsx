@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 
 const PokemonCard = ({ pokemon }) => {
   return (
-    <div className="dm-sans-thin mx-auto mt-4 max-w-xs overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xl">
+    <div className="fade-in-scale dm-sans-thin mx-auto mt-4 max-w-xs overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xl">
       <div className="container">
         <div className="flex rounded-lg border border-gray-300 p-4 shadow-md">
           {/* <!-- Left Column --> */}
-          <div className="w-1/2 pr-4">
-            <h2 className="mb-2 text-xl font-bold capitalize">
-              Name: {pokemon.name}
+          <div className="my-auto w-1/2 pr-4">
+            <h2 className="mb-2 text-3xl font-bold capitalize">
+              {pokemon.name}
             </h2>
             <p className="mb-2 text-gray-700">Id: {pokemon.id}</p>
             <p className="mb-2 text-gray-700">
