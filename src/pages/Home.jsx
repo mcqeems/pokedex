@@ -46,6 +46,7 @@ function Home() {
         </div>
         {selectedPokemon && <PokemonCard pokemon={selectedPokemon} />}
       </div>
+      <p className="motion-preset-fade">Halo</p>
     </>
   );
 }

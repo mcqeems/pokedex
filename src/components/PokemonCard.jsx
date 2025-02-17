@@ -17,6 +17,19 @@ const PokemonCard = ({ pokemon }) => {
             <p className="mb-2 text-gray-700">
               Weight: {pokemon.weight / 10} kg
             </p>
+
+            {/* Kemampuan Pokémon */}
+            <div className="mt-2 flex space-x-2 text-gray-700">
+              <strong className="mb-2">Abilities:</strong>
+              <ul className="mt-1 list-inside list-disc">
+                {pokemon.abilities.map((ability, index) => (
+                  <li key={index} className="capitalize">
+                    {ability.ability.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <p className="mb-2 text-gray-700">Types:</p>
             {/* <!-- Type Boxes --> */}
             <div className="mt-2 flex space-x-2">
@@ -56,7 +69,7 @@ const PokemonCard = ({ pokemon }) => {
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
               alt={pokemon.name}
-              className="h-100 w-auto object-contain"
+              className="h-70 w-auto object-contain"
             />
           </div>
         </div>
