@@ -2,14 +2,17 @@ import PropTypes from "prop-types";
 
 const PokemonCard = ({ pokemon }) => {
   return (
-    <div className="fade-in-scale dm-sans-thin mx-auto mt-4 max-w-xs overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xl">
-      <div className="container">
+    <div className="fade-in-scale dm-sans-thin mx-auto mt-8 max-w-xs overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xl">
+      <div className="relative container overflow-visible">
         <div className="flex rounded-lg border border-gray-300 p-4 shadow-md">
           {/* <!-- Left Column --> */}
           <div className="my-auto w-1/2 pr-4">
-            <h2 className="mb-2 text-3xl font-bold capitalize">
+            <a
+              href={`https://pokemondb.net/pokedex/${pokemon.name}`}
+              className="mb-2 text-3xl font-bold capitalize underline"
+            >
               {pokemon.name}
-            </h2>
+            </a>
             <p className="mb-2 text-gray-700">Id: {pokemon.id}</p>
             <p className="mb-2 text-gray-700">
               Height: {pokemon.height / 10} m
@@ -54,7 +57,17 @@ const PokemonCard = ({ pokemon }) => {
                                     ? "bg-sky-200"
                                     : type.type.name === "normal"
                                       ? "bg-gray-300"
-                                      : "bg-gray-300"
+                                      : type.type.name === "fighting"
+                                        ? "bg-orange-300"
+                                        : type.type.name === "ground"
+                                          ? "bg-teal-600"
+                                          : type.type.name === "ghost"
+                                            ? "bg-blue-700"
+                                            : type.type.name === "steel"
+                                              ? "bg-slate-400"
+                                              : type.type.name === "dragon"
+                                                ? "bg-amber-500"
+                                                : "bg-gray-200"
                     }`}
                   >
                     {type.type.name}
