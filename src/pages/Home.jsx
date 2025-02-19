@@ -5,7 +5,6 @@ import BlurText from "../components/BlurText";
 import ShinyText from "../components/ShinyText";
 import SearchBox from "../components/SearchBox";
 import PokemonCard from "../components/PokemonCard";
-import Footer from "../components/Footer";
 
 function Home() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -48,9 +47,6 @@ function Home() {
         {selectedPokemon && <PokemonCard pokemon={selectedPokemon} />}
       </div>
       <div className="h-100 w-full min-w-full bg-red-500"></div>
-      <div className="h-auto w-full min-w-full bg-gray-900 py-5">
-        <Footer></Footer>
-      </div>
     </>
   );
 }

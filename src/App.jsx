@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Pokemons from "./pages/Pokemons";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-// import Footer from "./Footer";
+import Footer from "./components/Footer";
 // import Food from "./Food";
 
 function App() {
@@ -12,15 +12,14 @@ function App() {
     <>
       <Router>
         <Navbar></Navbar>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/pokemons" element={<Pokemons></Pokemons>}></Route>
-            <Route path="/contact" element={<Contact></Contact>}></Route>
-            <Route path="/about" element={<About></About>}></Route>
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/pokemons" element={<Pokemons></Pokemons>}></Route>
+          <Route path="/contact" element={<Contact></Contact>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+        </Routes>
       </Router>
+      <Footer></Footer>
     </>
   );
 }

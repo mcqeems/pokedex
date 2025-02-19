@@ -23,7 +23,7 @@ function Navbar() {
           </div>
 
           <button
-            className={`${isMenuOpen ? "ml-55" : "md:hidden"} text-gray-700 hover:text-red-500 focus:outline-none`}
+            className={`${isMenuOpen ? "mr-5" : "md:hidden"} text-gray-700 hover:text-red-500 focus:outline-none`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {/* Icon 3 Baris */}
@@ -53,20 +53,21 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to="/about"
-                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/pokemons"
                   className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
                 >
                   Pokemons
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
+                >
+                  About
+                </Link>
+              </li>
+
               <li>
                 <Link
                   to="/contact"
@@ -90,20 +91,21 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to="/about"
-                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/pokemons"
                 className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
               >
                 Pokemons
               </Link>
             </li>
+            <li>
+              <Link
+                to="/about"
+                className="text-black transition delay-100 duration-100 ease-in-out hover:text-red-600"
+              >
+                About
+              </Link>
+            </li>
+
             <li>
               <Link
                 to="/contact"

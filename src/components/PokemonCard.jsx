@@ -9,6 +9,7 @@ const PokemonCard = ({ pokemon }) => {
           <div className="my-auto w-1/2 pr-4">
             <a
               href={`https://pokemondb.net/pokedex/${pokemon.name}`}
+              target="_blank"
               className="mb-2 text-3xl font-bold capitalize underline"
             >
               {pokemon.name}
