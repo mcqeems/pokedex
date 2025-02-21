@@ -100,7 +100,7 @@ function Pokemons() {
   return (
     <>
       <div className="dm-sans-medium flex h-auto w-[90%] flex-col items-center justify-center justify-self-center bg-white px-3 pt-20 pb-5 md:flex-row md:px-10 md:py-30">
-        <div className="fade-in-blur w-full">
+        <div className="w-full">
           <ul className="flex justify-around border-b-2 border-b-red-500 md:flex-row">
             {alphabet.map((letter) => (
               <li className="mb-10" key={letter}>
