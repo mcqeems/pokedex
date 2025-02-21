@@ -169,9 +169,16 @@ function Pokemons() {
                     alt={selectedPokemon.name}
                     className="mx-auto mb-5 h-70 w-auto object-contain"
                   />
-                  <h2 className="mb-4 text-2xl font-bold text-gray-800">
-                    {selectedPokemon.name.toUpperCase()}
-                  </h2>
+                  <a
+                    href={`https://pokemondb.net/pokedex/${selectedPokemon.name}`}
+                    target="_blank"
+                  >
+                    {" "}
+                    <h2 className="mb-2 border-b-2 text-2xl font-bold text-gray-800 transition delay-75 duration-150 ease-linear hover:text-red-600">
+                      {selectedPokemon.name.toUpperCase()}
+                    </h2>
+                  </a>
+
                   <p className="mb-2">
                     <strong>Id:</strong> {selectedPokemon.id}
                   </p>
