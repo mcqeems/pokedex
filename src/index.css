@@ -14,6 +14,10 @@
   animation: fadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+.fade-in-scale-two {
+  animation: fadeInScale 1s;
+}
+
 @keyframes fadeOutScale {
   from {
     opacity: 1;
@@ -37,6 +41,40 @@
   to {
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+.fade-in-scale-blur {
+  animation: fadeInScaleBlur 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInScaleBlur {
+  from {
+    opacity: 0;
+    transform: scale(0);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.fade-out-scale-blur {
+  animation: fadeOutScaleBlur 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeOutScaleBlur {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+    filter: blur(10px);
   }
 }
 
