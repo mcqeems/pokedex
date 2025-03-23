@@ -1,10 +1,13 @@
 function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center bg-gray-900 py-5">
-      <p className="mb-2 flex flex-row text-white">
-        Made with <img className="h-5 w-auto" src="/heart.svg"></img> by McQeems
-      </p>
-      <p className="text-white">&copy; {new Date().getFullYear()} Pokedex</p>
+    <footer className="mt-auto w-full bg-gray-900 py-4">
+      <div className="container mx-auto flex flex-col items-center justify-center px-4">
+        <p className="mb-2 flex items-center gap-2 text-white">
+          Made with <img className="h-5 w-auto" src="/heart.svg" alt="heart" />{" "}
+          by McQeems
+        </p>
+        <p className="text-white">&copy; {new Date().getFullYear()} Pokedex</p>
+      </div>
     </footer>
   );
 }

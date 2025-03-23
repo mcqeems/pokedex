@@ -24,39 +24,66 @@ const Input = ({ onSearch }) => {
     }
   }, [query]);
 
-  // Handle suggestion selection
-  const handleSuggestionClick = (name) => {
-    setQuery(name);
-    setSuggestions([]);
-    onSearch(name); // Trigger parent callback
+  // Handle input change and selection from datalist
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setQuery(newValue);
+
+    // Check if the value matches one of our suggestions (user selected from datalist)
+    if (suggestions.includes(newValue)) {
+      onSearch(newValue);
+    }
   };
 
   return (
     <>
       <StyledWrapper>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          name="text"
-          placeholder="Find your Pokemon!"
-          className="input fade-in-blur-long dm-sans-medium mt-5 md:mt-20 md:scale-130"
-        />
-      </StyledWrapper>
-
-      {suggestions.length > 0 && (
-        <ul className="fade-in-scale dm-sans-thin absolute z-10 mb-[-340px] max-h-20 w-[200px] overflow-hidden rounded-2xl bg-white/50 shadow-lg transition-all delay-50 duration-150 ease-in-out hover:w-[240px] hover:scale-105 hover:bg-white/80 md:mb-[-420px]">
-          {suggestions.map((name, index) => (
-            <li
-              key={index}
-              onClick={() => handleSuggestionClick(name)}
-              className="cursor-pointer p-2 transition delay-75 duration-75 ease-in-out hover:bg-gray-100"
+        <div className="relative flex items-center justify-center">
+          <input
+            type="text"
+            value={query}
+            onChange={handleInputChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSearch(query);
+              }
+            }}
+            name="text"
+            list="pokemon-suggestions"
+            placeholder="Search Pokemon"
+            className="input fade-in-blur-long dm-sans-medium mt-5 pr-12 md:mt-20 md:scale-130"
+          />
+          <button
+            onClick={() => {
+              if (query.trim()) {
+                onSearch(query);
+              }
+            }}
+            className="fade-in-blur-long absolute right-[-20px] mt-5 cursor-pointer rounded-full bg-red-500 p-1.5 text-white shadow-sm transition-all hover:bg-red-600 md:mt-20 md:scale-130"
+            aria-label="Search"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {name}
-            </li>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+        <datalist id="pokemon-suggestions">
+          {suggestions.map((name, index) => (
+            <option key={index} value={name} />
           ))}
-        </ul>
-      )}
+        </datalist>
+      </StyledWrapper>
     </>
   );
 };
@@ -77,16 +104,16 @@ const StyledWrapper = styled.div`
     padding: 18px 15px;
     outline: none;
     text-align: center;
-    width: 200px;
+    width: 250px;
     transition: 0.5s;
   }
 
   .input[type="text"]:hover {
-    width: 240px;
+    width: 280px;
   }
 
   .input[type="text"]:focus {
-    width: 280px;
+    width: 300px;
   }
 `;
 

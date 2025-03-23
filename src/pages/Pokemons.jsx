@@ -101,18 +101,20 @@ function Pokemons() {
     <>
       <div className="dm-sans-medium flex h-auto w-[90%] flex-col items-center justify-center justify-self-center bg-white px-3 pt-20 pb-5 md:flex-row md:px-10 md:py-30">
         <div className="w-full">
-          <ul className="flex justify-around border-b-2 border-b-red-500 md:flex-row">
-            {alphabet.map((letter) => (
-              <li className="mb-10" key={letter}>
-                <a
-                  className="block w-auto rounded bg-red-500 text-center text-sm text-white transition delay-50 duration-150 ease-in-out hover:bg-red-700 md:w-5 md:text-sm lg:w-8 lg:text-xl"
-                  href={`#${letter}`}
-                >
-                  {letter}
-                </a>{" "}
-              </li>
-            ))}
-          </ul>
+          <div className="overflow-x-auto pb-2">
+            <ul className="flex min-w-max justify-around border-b-2 border-b-red-500 md:flex-row">
+              {alphabet.map((letter) => (
+                <li className="mb-10 px-1 md:px-0" key={letter}>
+                  <a
+                    className="block rounded bg-red-500 px-2 py-1 text-center text-sm text-white transition delay-50 duration-150 ease-in-out hover:bg-red-700 md:w-5 md:py-0 md:text-sm lg:w-8 lg:text-xl"
+                    href={`#${letter}`}
+                  >
+                    {letter}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="mx-auto max-w-4xl">
             {pokemonNames.map((name, index) => {
               // Get the first letter of the current Pokémon name
