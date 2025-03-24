@@ -59,7 +59,7 @@ const Input = ({ onSearch }) => {
                 onSearch(query);
               }
             }}
-            className="fade-in-blur-long absolute right-[-20px] mt-5 cursor-pointer rounded-full bg-red-500 p-1.5 text-white shadow-sm transition-all hover:bg-red-600 md:mt-20 md:scale-130"
+            className="fade-in-blur-long absolute right-2 mt-5 cursor-pointer rounded-full bg-red-500 p-1.5 text-white shadow-sm transition-all hover:bg-red-600 md:right-[-20px] md:mt-20 md:scale-130"
             aria-label="Search"
           >
             <svg
